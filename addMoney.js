@@ -16,12 +16,11 @@ document
 
       // add to transaction history
       const paragraph = document.createElement("p");
+      paragraph.classList.add("bg-green-400");
       paragraph.innerText = `Added: ${inputMoney} Tk, new balance is ${result} Tk`;
 
       // common form to appendChild
-      document
-        .getElementById("transaction-history-form")
-        .appendChild(paragraph);
+      document.getElementById("history-container").appendChild(paragraph);
     } else {
       alert("You are wrong,please type correct pin");
     }
@@ -47,12 +46,7 @@ document
 
       const cashOut = document.createElement("div");
       cashOut.classList.add("bg-red-400");
-      cashOut.innerHTML = `
-        <h5>Cash Out</h5>
-        <p>
-          Withdraw amount is ${inputMoney}tk and new balance is ${reduction}
-          Tk;
-        </p>`;
+      cashOut.innerText = `Withdraw amount is ${inputMoney}tk and new balance is ${reduction} Tk;`;
 
       // now append
       document.getElementById("history-container").appendChild(cashOut);
