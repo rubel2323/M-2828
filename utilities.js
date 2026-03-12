@@ -4,6 +4,11 @@ function getInputFieldValueByIdAsFloat(id) {
   return finalValueByParseFloat;
 }
 
+function getInputFieldByIdAsValue(id) {
+  const inputValue = document.getElementById(id).value;
+  return inputValue;
+}
+
 function getTextAmountAsNumber(id) {
   const textInput = document.getElementById(id).innerText;
   const textNumber = parseFloat(textInput);
@@ -20,6 +25,24 @@ function cashOutAmount(id1, id2) {
   return totalCashOut;
 }
 
+function getTransactionsInputs(id1, pinInput) {
+  return {
+    inputMoney: getInputFieldValueByIdAsFloat(id1),
+    displayAccountBalance: getTextAmountAsNumber("account-balance"),
+    pinNumber: getInputFieldByIdAsValue(pinInput),
+  };
+}
+
 function setAccountBalanceDisplayText(id, value) {
   document.getElementById(id).innerText = value;
+}
+
+function setSectionForm(id) {
+  // first hide all forms
+  document.getElementById("add-money-form").classList.add("hidden");
+  document.getElementById("cash-out-form").classList.add("hidden");
+  document.getElementById("transaction-history-form").classList.add("hidden");
+
+  // now show clicked form
+  document.getElementById(id).classList.remove("hidden");
 }
